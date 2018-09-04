@@ -174,3 +174,7 @@ input {
   @extend .has-error;
   margin-bottom: 0;
 }
+
+input[type=checkbox]{
+  width: 20px;
+}

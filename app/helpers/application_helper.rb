@@ -11,11 +11,11 @@ module ApplicationHelper
 
   def bootstrap_class_for(flash_type)
     case flash_type
-      when :success
+      when 'success'
         "alert-success"
-      when :error
+      when 'error'
         "alert-danger"
-      when :alert
+      when 'alert'
         "alert-warning"
       when 'notice'
         "alert-info"
