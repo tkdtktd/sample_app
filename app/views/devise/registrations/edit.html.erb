@@ -24,7 +24,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(パスワードを変更する場合のみ入力してください)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -49,6 +49,6 @@
 
 <h3>アカウントの削除</h3>
 
-<p>Unhappy? <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除するとログインできなくなります。本当に削除してよろしいですか？" }, method: :delete %></p>
+<p>unhappy? <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除するとログインできなくなります。本当に削除してよろしいですか？" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
