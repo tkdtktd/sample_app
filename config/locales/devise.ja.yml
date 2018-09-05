@@ -61,6 +61,11 @@ ja:
         one: "エラーが発生したため %{resource} は保存されませんでした:"
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
 
+ja:
+  will_paginate:
+    previous_label: "&#8592;前のページ"
+    next_label: "次へ&#8594;"
+
 
 ja:
   activerecord:
@@ -70,3 +75,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         email: メールアドレス
+  errors:
+    messages:
+      blank: "が記入されていません"

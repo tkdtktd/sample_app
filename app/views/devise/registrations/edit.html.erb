@@ -1,7 +1,18 @@
+<% provide(:title, 'Edit') %>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field_with_errors">
+    <%= devise_error_messages! %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, autofocus: true, class: "control-label" %>
+    <%= f.text_field :name, autofocus: true, class: "form-controll" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -17,7 +28,7 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> 文字以上</em>
     <% end %>
   </div>
 
@@ -32,12 +43,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントの削除</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除するとログインできなくなります。本当に削除してよろしいですか？" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
