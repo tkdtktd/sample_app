@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   root 'staticpages#home'
   get '/help' => 'staticpages#help'
