@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
 
-  has_many :reverse_ralationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
-  has_many :followers, through: :reverse_relationships, # source: :follower
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :reverse_relationships
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -23,7 +23,6 @@ class User < ApplicationRecord
   end
 
   def follow!(other_user)
-    # self は書いても書かなくてもいい
     self.relationships.create!(followed_id: other_user.id)
   end
 
