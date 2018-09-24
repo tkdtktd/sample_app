@@ -1,5 +1,11 @@
 <li>
   <span class="content"><%= micropost.content %></span>
+
+  <div class="image">
+    <!-- ここではサイズをthumbに指定しています。設定はmicropost.rb -->
+    <%= image_tag micropost.image.thumb250.url if micropost.image? %>
+  </div>
+
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> に投稿
   </span>

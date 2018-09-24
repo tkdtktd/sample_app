@@ -4,7 +4,7 @@
     <section>
       <%= gravatar_for(@user, 20) %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to("View my profile", @user) %></span>
+      <span><%= link_to("プロフィールを見る", @user) %></span>
       <span><b>Microposts:</b><%= @user.microposts.count %></span>
     </section>
     <section>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
@@ -10,10 +11,11 @@ Rails.application.routes.draw do
 
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :contacts, only: [:new, :create]
 
   root 'staticpages#home'
   get '/help' => 'staticpages#help'
   get '/about' => 'staticpages#about'
-  get '/contact' => 'staticpages#contact'
+  get '/contact' => 'contacts#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
