@@ -287,4 +287,14 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  # API keys
+  if Rails.env.production?
+    config.omniauth :facebook, ENV['FA_API_ID'], ENV['FA_API_SECRET']
+    config.omniauth :twitter, ENV['TWI_API_KEY'], ENV['TWI_API_SECRET']
+  else
+    config.omniauth :facebook, ENV['FA_API_ID'], ENV['FA_API_SECRET']
+    config.omniauth :twitter, ENV['TWI_API_KEY'], ENV['TWI_API_SECRET']
+  end
+
 end

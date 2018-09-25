@@ -28,6 +28,10 @@ class RegistrationsController < Devise::RegistrationsController
 #     end
 # # ↑ここまで↑
 
+def build_resource(hash=nil)
+  hash[:uid] = User.create_unique_string
+  super
+end
 
 def after_sign_up_path_for(resource)
   user_path(resource)

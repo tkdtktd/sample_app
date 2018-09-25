@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
   devise_for :users, :controllers => {
-    :registrations => "registrations"
+    :registrations => "registrations",
+    :omniauth_callbacks => "omniauth_callbacks"
   }
   resources :users, only: [:show, :index, :destroy] do
     member do
