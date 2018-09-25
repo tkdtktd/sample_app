@@ -20,24 +20,27 @@
 
 <%- if devise_mapping.omniauthable? && Rails.env.production? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= provider %>
     <% if provider == :facebook %>
-      <i class="fab fa-facebook fa-lg fa-fw"></i>
-      <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %><br />
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" do %>
+        <i class="fab fa-facebook fa-lg fa-fw"></i>
+        <%= "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
+      <% end %>
     <% end %>
     <% if provider == :twitter %>
-      <i class="fab fa-twitter-square fa-lg fa-fw"></i>
-      <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-info" do %>
+        <i class="fab fa-twitter-square fa-lg fa-fw"></i>
+        <%= "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
+      <% end %>
     <% end %>
   <% end -%>
 <% else %>
+
   <!-- 上のif文のなかで表示されないときはダミーボタンを置く（開発環境） -->
   <p>It is dummy button !</p>
   <a href="" class="btn btn-primary">
     <i class="fab fa-facebook fa-lg fa-fw"></i>
     Sign in with facebook
   </a>
-  <br>
   <a href="" class="btn btn-info">
     <i class="fab fa-twitter-square fa-lg fa-fw"></i>
     Sign in with twitter
