@@ -1,13 +1,13 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "ログイン", new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "New user? Sign up now!", new_registration_path(resource_name) %><br />
+  <%= link_to "新規登録はこちら", new_registration_path(resource_name), class: "btn btn-default" %><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: "btn btn-default" %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -37,12 +37,12 @@
 
   <!-- 上のif文のなかで表示されないときはダミーボタンを置く（開発環境） -->
   <p>It is dummy button !</p>
-  <a href="" class="btn btn-primary">
+  <%= link_to "", class: "btn btn-primary" do %>
     <i class="fab fa-facebook fa-lg fa-fw"></i>
-    Sign in with facebook
-  </a>
-  <a href="" class="btn btn-info">
+    <%= "Sign in with facebook" %>
+  <% end %>
+  <%= link_to "", class: "btn btn-info" do %>
     <i class="fab fa-twitter-square fa-lg fa-fw"></i>
-    Sign in with twitter
-  </a>
+    <%= "Sign in with twitter" %>
+  <% end %>
 <% end -%>
