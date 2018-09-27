@@ -1,8 +1,13 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
 
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
+  # Include RMagick or MiniMagick support:
+    include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
+  end
+  
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -43,6 +48,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  def size_range
+    1..5.megabytes
   end
 
   # Override the filename of the uploaded files:
